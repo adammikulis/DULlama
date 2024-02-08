@@ -5,20 +5,25 @@ All Llama2 and Mistral 7B models require a mininum of 16GB of RAM for CPU infere
 You can configure the code to use a GPU by uncommenting the relevant line in the modelparams. Add one of the nuget packages listed here using Nuget Package Manager to use an Nvidia GPU (you may have to remove LLamaSharp.Backend.CPU):
 
 https://www.nuget.org/packages/LLamaSharp.Backend.Cuda11
+
 https://www.nuget.org/packages/LLamaSharp.Backend.Cuda12
 
 
 Mistral model downloads:
 
 Math-enhanced: https://huggingface.co/TheBloke/Mistral-7B-Instruct-v0.2-DARE-GGUF
+
 Coding: https://huggingface.co/TheBloke/Mistral-7B-Instruct-v0.2-code-ft-GGUF
+
 General instruct: https://huggingface.co/TheBloke/Mistral-7B-Instruct-v0.2-GGUF 
 
 
 Llama2 models:
 
 Coding: https://huggingface.co/TheBloke/CodeLlama-7B-Instruct-GGUF
+
 General: https://huggingface.co/TheBloke/Llama-2-7B-GGUF
+
 Inference speed on CPU is roughly equal between Mistral and Llama2, with Mistral scoring higher in benchmarks. The next update will support Microsoft's Phi-2 which will require half of the current system requirements.
 
 Future goals:
