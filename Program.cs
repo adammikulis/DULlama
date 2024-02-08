@@ -8,7 +8,7 @@
 // Download a Llama2 coding model: https://huggingface.co/TheBloke/CodeLlama-7B-Instruct-GGUF
 // Download a Llama2 general model: https://huggingface.co/TheBloke/Llama-2-7B-GGUF
 
-// This project includes LLamaSharp.Backend.CPU only, for Nvidia GPUs add either backend from nuget:
+// This project includes LLamaSharp.Backend.CPU only, for Nvidia GPUs add either backend using Nuget Package Manager in Visual Studio or via VSCode extension:
 // https://www.nuget.org/packages/LLamaSharp.Backend.Cuda11
 // https://www.nuget.org/packages/LLamaSharp.Backend.Cuda12
 
