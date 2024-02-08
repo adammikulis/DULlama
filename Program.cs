@@ -96,6 +96,7 @@ var @modelparams = new ModelParams(modelPath)
 {
     ContextSize = 4096, // This can be changed by the user according to memory usage and model capability
     EmbeddingMode = true, // This must be set to true to generate embeddings for vector search
+    // GpuLayerCount = 64 // Uncomment this line and set your number of layers to offload to the GPU here (must have nuget package LLamaSharp.Backend.Cuda11 or .Cuda12 installed)
 };
 
 // Load the model and create the embedder
