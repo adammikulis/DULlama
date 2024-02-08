@@ -16,18 +16,18 @@ using LLama;
 using LLama.Common;
 using System.Data;
 
-string directoryPath = @"C:\ai\models"; // Change to your model folder here
+string directoryPath = @"C:/ai/models"; // Change to your model folder here
 
 // Create your datasource of facts for the vector db
 string[] facts = {
     "The University of Denver is a private University that is abbreviated as 'DU'",
     "The University of Denver was founded in 1864",
     "DU is a private R1 University",
-    "DU's Ritchie Center is home to the Magness Arena and Ritchie Center",
     "The mascot of the University of Denver is the Pioneer",
     "DU is located in south Denver, Colorado in the University neighborhood",
-    "The 720 acre Kennedy Mountain Campus is located 110 miles northwest of Denver",
+    "DU's has a secondary/satellite campus, the 720 acre Kennedy Mountain Campus which is located 110 miles northwest of Denver",
     "DU has 5700 undergraduate students and 7200 graduate students",
+    "DU's Ritchie Center is home to the Magness Arena",
     "DU's hockey team plays in Magness Arena, named after cable television pioneer Bob Magness"
 };
 
@@ -102,7 +102,7 @@ var @modelparams = new ModelParams(modelPath)
 // Load the model and create the embedder
 using var model = LLamaWeights.LoadFromFile(@modelparams);
 var embedder = new LLamaEmbedder(model, @modelparams);
-Console.WriteLine($"\nModel: {fullModelName} loaded\n");
+Console.WriteLine($"\nModel: {fullModelName} from {modelPath} loaded\n");
 
 // Data table will include the embeddings (serves as the index) and original text for reference (atypical of vector dbs)
 DataTable dt = new DataTable();
@@ -156,7 +156,7 @@ while (true)
     prompt += "Answer:";
 
     // Execute conversation with modified prompt including top n matches
-    Console.WriteLine("Processing with LLM...");
+    Console.WriteLine("\nQuerying database and processing with LLM...\n");
     await foreach (var text in session.ChatAsync(new ChatHistory.Message(AuthorRole.User, prompt), new InferenceParams { Temperature = 0.25f, AntiPrompts = ["DU Llama: Please enter a query:\r\n"] }))
     {
         Console.Write(text);

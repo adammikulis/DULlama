@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("DULlama")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Release")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+f0c50305a9978ce7c4dc055e0b3b3eba29d7572d")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+2b31b356e9dab8c8958ecfe800d1be1e9e0b8396")]
 [assembly: System.Reflection.AssemblyProductAttribute("DULlama")]
 [assembly: System.Reflection.AssemblyTitleAttribute("DULlama")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
