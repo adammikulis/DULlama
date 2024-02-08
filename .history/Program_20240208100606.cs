@@ -66,25 +66,22 @@ foreach (var fact in du_facts)
 }
 Console.WriteLine("Facts embedded!");
 
-
-// Create the context and InteractiveExecutor needed for chat, utilizing existing @modelparams
 using var context = model.CreateContext(@modelparams);
 var ex = new InteractiveExecutor(context);
 string prompt = "";
 string conversation = "";
+
 ChatSession session = new ChatSession(ex);
 Console.Write("DU Llama: Please enter a query:\r\n");
-
-// Chat loop
 while (true)
 {
-    // Reads the user query and generates embeddings
     var query = Console.ReadLine();
-    if (string.IsNullOrWhiteSpace(query)) break; // Easy way to quit out
+
+    if (string.IsNullOrWhiteSpace(query)) break;
+
     var queryEmbeddings = embedder.GetEmbeddings(query);
     List<Tuple<double, string>> scores = new List<Tuple<double, string>>();
 
-    // Compares embeddings to vector db and ranks by similarity
     foreach (DataRow row in dt.Rows)
     {
         var factEmbeddings = (float[])row["Embedding"];
@@ -92,21 +89,23 @@ while (true)
         scores.Add(new Tuple<double, string>(score, (string)row["OriginalText"]));
     }
 
-    // Get top n matches from vector db
+    // Get top n matches
     var n_top_matches = 3;
     var topMatches = scores.OrderByDescending(s => s.Item1).Take(n_top_matches).ToList();
 
     // Prepare prompt with original query and top n facts
-    prompt = $"Reply in a conversational manner utilizing the top facts in the prompt to answer only the user's specific question. Be a friendly but concise chatbot (do not offer extra, unrelated info) to help users learn more about the University of Denver. Query: {query}\n";
+    prompt = $"Reply in a conversational manner utilizing mainly the top facts in the prompt to answer only the user's specific question. Be a friendly but concise chatbot (do not offer extra, less related info) to help users learn more about the University of Denver. Query: {query}\n";
     for (int i = 0; i < topMatches.Count; i++)
     {
         prompt += $"Fact {i + 1}: {topMatches[i].Item2}\n";
     }
     prompt += "Answer:";
-    conversation += prompt; // Processing the full conversation is not yet implemented, treats each message as a new conversation at this time
+    conversation += prompt;
+    
+
+    Console.WriteLine("\nProcessing with LLM...");
 
     // Execute conversation with modified prompt including top n matches
-    Console.WriteLine("\nProcessing with LLM...");
     await foreach (var text in session.ChatAsync(new ChatHistory.Message(AuthorRole.User, prompt), new InferenceParams { Temperature = 0.25f, AntiPrompts = ["DU Llama: Please enter a query:\r\n"] }))
     {
         Console.Write(text);

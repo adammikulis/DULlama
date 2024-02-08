@@ -97,16 +97,18 @@ while (true)
     var topMatches = scores.OrderByDescending(s => s.Item1).Take(n_top_matches).ToList();
 
     // Prepare prompt with original query and top n facts
-    prompt = $"Reply in a conversational manner utilizing the top facts in the prompt to answer only the user's specific question. Be a friendly but concise chatbot (do not offer extra, unrelated info) to help users learn more about the University of Denver. Query: {query}\n";
+    prompt = $"Reply in a conversational manner utilizing mainly the top facts in the prompt to answer only the user's specific question. Be a friendly but concise chatbot (do not offer extra, less related info) to help users learn more about the University of Denver. Query: {query}\n";
     for (int i = 0; i < topMatches.Count; i++)
     {
         prompt += $"Fact {i + 1}: {topMatches[i].Item2}\n";
     }
     prompt += "Answer:";
-    conversation += prompt; // Processing the full conversation is not yet implemented, treats each message as a new conversation at this time
+    conversation += prompt;
+    
+
+    Console.WriteLine("\nProcessing with LLM...");
 
     // Execute conversation with modified prompt including top n matches
-    Console.WriteLine("\nProcessing with LLM...");
     await foreach (var text in session.ChatAsync(new ChatHistory.Message(AuthorRole.User, prompt), new InferenceParams { Temperature = 0.25f, AntiPrompts = ["DU Llama: Please enter a query:\r\n"] }))
     {
         Console.Write(text);

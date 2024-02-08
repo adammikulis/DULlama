@@ -105,8 +105,9 @@ while (true)
     prompt += "Answer:";
     conversation += prompt; // Processing the full conversation is not yet implemented, treats each message as a new conversation at this time
 
-    // Execute conversation with modified prompt including top n matches
     Console.WriteLine("\nProcessing with LLM...");
+
+    // Execute conversation with modified prompt including top n matches
     await foreach (var text in session.ChatAsync(new ChatHistory.Message(AuthorRole.User, prompt), new InferenceParams { Temperature = 0.25f, AntiPrompts = ["DU Llama: Please enter a query:\r\n"] }))
     {
         Console.Write(text);

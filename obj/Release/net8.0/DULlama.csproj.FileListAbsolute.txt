@@ -28,3 +28,4 @@ C:\Users\adam.mikulis\OneDrive - University of Denver\AI\DULlama\DULlama\obj\Rel
 C:\Users\adam.mikulis\OneDrive - University of Denver\AI\DULlama\DULlama\obj\Release\net8.0\DULlama.pdb
 C:\Users\adam.mikulis\OneDrive - University of Denver\AI\DULlama\DULlama\obj\Release\net8.0\DULlama.genruntimeconfig.cache
 C:\Users\adam.mikulis\OneDrive - University of Denver\AI\DULlama\DULlama\obj\Release\net8.0\ref\DULlama.dll
+C:\Users\adam.mikulis\OneDrive - University of Denver\AI\DULlama\DULlama\obj\Release\net8.0\DULlama.sourcelink.json
