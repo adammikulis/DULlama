@@ -9,6 +9,8 @@ https://www.nuget.org/packages/LLamaSharp.Backend.Cuda11
 https://www.nuget.org/packages/LLamaSharp.Backend.Cuda12
 
 
+I currently recommend Mistralv0.2 over Llama2 due to its faster processing time, smaller memory footprint, and superior benchmark performance.
+
 Mistral model downloads:
 
 Math-enhanced: https://huggingface.co/TheBloke/Mistral-7B-Instruct-v0.2-DARE-GGUF
@@ -24,9 +26,9 @@ Coding: https://huggingface.co/TheBloke/CodeLlama-7B-Instruct-GGUF
 
 General: https://huggingface.co/TheBloke/Llama-2-7B-GGUF
 
-Inference speed on CPU is roughly equal between Mistral and Llama2, with Mistral scoring higher in benchmarks. The next update will support Microsoft's Phi-2 which will require half of the current system requirements.
 
 Future goals:
+- Add support for Microsoftf's Phi-2
 - Add processing for additional files/datatypes (sqr, sql, pdf, etc)
 - Allow the LLM to process the entire conversation while still focusing on the most recent prompt to avoid repeating answers
 - Integrate some telemetry like tok/s
