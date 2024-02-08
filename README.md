@@ -25,7 +25,8 @@ General: https://huggingface.co/TheBloke/Llama-2-7B-GGUF
 
 Inference speed on CPU is roughly equal between Mistral and Llama2, with Mistral scoring higher in benchmarks. The next update will support Microsoft's Phi-2 which will require half of the current system requirements.
 
-Future steps:
+Future goals:
+- Add processing for additional files/datatypes (sqr, sql, pdf, etc)
 - Allow the LLM to process the entire conversation while still focusing on the most recent prompt to avoid repeating answers
 - Integrate some telemetry like tok/s
 - Build a better UI
