@@ -1,0 +1,16 @@
+{
+  "version": 2,
+  "dgSpecHash": "W/8k/+ZXS0YSxjORjq4SXNYxyHW9ccZ3MJurb+NiKxuYNhXMkX4XCwRrWGgql8/e4+Y6bAdI4vSOqMCXefK2iA==",
+  "success": true,
+  "projectFilePath": "C:\\Users\\adam.mikulis\\OneDrive - University of Denver\\AI\\DULlama\\DULlama\\DULlama.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\adam.mikulis\\.nuget\\packages\\llamasharp\\0.9.1\\llamasharp.0.9.1.nupkg.sha512",
+    "C:\\Users\\adam.mikulis\\.nuget\\packages\\llamasharp.backend.cpu\\0.9.1\\llamasharp.backend.cpu.0.9.1.nupkg.sha512",
+    "C:\\Users\\adam.mikulis\\.nuget\\packages\\microsoft.dotnet.ilcompiler\\8.0.1\\microsoft.dotnet.ilcompiler.8.0.1.nupkg.sha512",
+    "C:\\Users\\adam.mikulis\\.nuget\\packages\\microsoft.extensions.dependencyinjection.abstractions\\8.0.0\\microsoft.extensions.dependencyinjection.abstractions.8.0.0.nupkg.sha512",
+    "C:\\Users\\adam.mikulis\\.nuget\\packages\\microsoft.extensions.logging.abstractions\\8.0.0\\microsoft.extensions.logging.abstractions.8.0.0.nupkg.sha512",
+    "C:\\Users\\adam.mikulis\\.nuget\\packages\\microsoft.net.illink.tasks\\8.0.1\\microsoft.net.illink.tasks.8.0.1.nupkg.sha512",
+    "C:\\Users\\adam.mikulis\\.nuget\\packages\\runtime.win-x64.microsoft.dotnet.ilcompiler\\8.0.1\\runtime.win-x64.microsoft.dotnet.ilcompiler.8.0.1.nupkg.sha512"
+  ],
+  "logs": []
+}
