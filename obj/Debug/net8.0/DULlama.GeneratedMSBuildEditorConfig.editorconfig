@@ -12,6 +12,6 @@ build_property.PlatformNeutralAssembly =
 build_property.EnforceExtendedAnalyzerRules = 
 build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property.RootNamespace = DULlama
-build_property.ProjectDir = C:\Users\adam.mikulis\OneDrive - University of Denver\AI\DULlama\DULlama\
+build_property.ProjectDir = C:\Users\adamm\Documents\GitHub\DULlama\
 build_property.EnableComHosting = 
 build_property.EnableGeneratedComInterfaceComImportInterop = false

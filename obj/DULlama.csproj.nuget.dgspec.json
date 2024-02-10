@@ -1,23 +1,23 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\adam.mikulis\\OneDrive - University of Denver\\AI\\DULlama\\DULlama\\DULlama.csproj": {}
+    "C:\\Users\\adamm\\Documents\\GitHub\\DULlama\\DULlama.csproj": {}
   },
   "projects": {
-    "C:\\Users\\adam.mikulis\\OneDrive - University of Denver\\AI\\DULlama\\DULlama\\DULlama.csproj": {
+    "C:\\Users\\adamm\\Documents\\GitHub\\DULlama\\DULlama.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\adam.mikulis\\OneDrive - University of Denver\\AI\\DULlama\\DULlama\\DULlama.csproj",
+        "projectUniqueName": "C:\\Users\\adamm\\Documents\\GitHub\\DULlama\\DULlama.csproj",
         "projectName": "DULlama",
-        "projectPath": "C:\\Users\\adam.mikulis\\OneDrive - University of Denver\\AI\\DULlama\\DULlama\\DULlama.csproj",
-        "packagesPath": "C:\\Users\\adam.mikulis\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\adam.mikulis\\OneDrive - University of Denver\\AI\\DULlama\\DULlama\\obj\\",
+        "projectPath": "C:\\Users\\adamm\\Documents\\GitHub\\DULlama\\DULlama.csproj",
+        "packagesPath": "C:\\Users\\adamm\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\adamm\\Documents\\GitHub\\DULlama\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
         ],
         "configFilePaths": [
-          "C:\\Users\\adam.mikulis\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\adamm\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
