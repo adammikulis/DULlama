@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("DULlama")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+a531a7e4208d82e6ee1c4010fdd4cd063ecc4a09")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+460e6b961ffaa24da1f719b5a00057b1b21c9fdf")]
 [assembly: System.Reflection.AssemblyProductAttribute("DULlama")]
 [assembly: System.Reflection.AssemblyTitleAttribute("DULlama")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

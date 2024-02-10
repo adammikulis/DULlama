@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Data;
+using System.Globalization;
 using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
@@ -17,18 +18,22 @@ public class RagPipelineBase
     protected uint? contextSize;
     protected DataTable dt;
     protected ModelParams? modelParams;
+    protected LLamaWeights? model;
     protected LLamaEmbedder? embedder;
+    protected LLamaContext? context;
     protected InteractiveExecutor? executor;
     protected ChatSession? session;
+    protected string prompt = "";
+    protected string conversation = "";
 
     public event Action<string> OnMessage;
 
     public RagPipelineBase(string directoryPath, string[] facts, uint contextSize)
     {
         this.directoryPath = directoryPath;
-        this.selectedModelPath = "";
+        selectedModelPath = "";
         this.facts = facts;
-        this.dt = new DataTable();
+        dt = new DataTable();
     }
 
     public virtual async Task InitializeAsync()
@@ -84,23 +89,24 @@ public class RagPipelineBase
             EmbeddingMode = true,
         };
 
-        using var model = LLamaWeights.LoadFromFile(modelParams);
+        model = LLamaWeights.LoadFromFile(modelParams);
         embedder = new LLamaEmbedder(model, modelParams);
         OnMessage?.Invoke($"Model: {fullModelName} from {selectedModelPath} loaded");
 
         InitializeDataTable();
+        InitializeConversation();
     }
 
     protected void InitializeDataTable()
     {
         // Add columns for different types of embeddings and the original text
-        dt.Columns.Add("LlamaEmbedding", typeof(float[]));
-        dt.Columns.Add("MistralEmbedding", typeof(float[]));
-        dt.Columns.Add("MixtralEmbedding", typeof(float[]));
-        dt.Columns.Add("PhiEmbedding", typeof(float[]));
-        dt.Columns.Add("OriginalText", typeof(string));
+        dt.Columns.Add("llamaEmbedding", typeof(float[]));
+        dt.Columns.Add("mistralEmbedding", typeof(float[]));
+        dt.Columns.Add("mixtralEmbedding", typeof(float[]));
+        dt.Columns.Add("phiEmbedding", typeof(float[]));
+        dt.Columns.Add("originalText", typeof(string));
 
-        OnMessage?.Invoke("Embedding facts in vector database...");
+        OnMessage?.Invoke("Using LLM to embed facts in vector database...");
 
         // Embed facts and add them to the DataTable
         foreach (var fact in facts)
@@ -113,7 +119,12 @@ public class RagPipelineBase
             float[]? phiEmbedding = null;
 
             // Assign embeddings based on the model type
-            if (modelType == "llama")
+            if (modelType == "codellama")
+            {
+                modelType = "llama";
+                llamaEmbedding = embeddings;
+            }
+            else if (modelType == "llama")
             {
                 llamaEmbedding = embeddings;
             }
@@ -138,13 +149,84 @@ public class RagPipelineBase
         }
         OnMessage?.Invoke("Facts embedded!");
     }
+
+    protected void InitializeConversation()
+    {
+        if (model == null || modelParams == null)
+        {
+            OnMessage?.Invoke("Model or modelParams is null. Cannot initialize conversation.");
+            return;
+        }
+
+        context = model.CreateContext(modelParams);
+        if (context == null)
+        {
+            OnMessage?.Invoke("Failed to create context. Cannot initialize conversation.");
+            return;
+        }
+
+        executor = new InteractiveExecutor(context);
+        session = new ChatSession(executor);
+
+        if (session == null)
+        {
+            OnMessage?.Invoke("Failed to create chat session.");
+        }
+    }
+
+
+    public async Task StartChatAsync()
+    {
+        Console.Write("\nDU Llama: Please enter a query:\r\n");
+        string embeddingColumnName = modelType + "Embedding";
+
+        while (true)
+        {
+            string prompt = QueryDatabase(embeddingColumnName);
+            await foreach (var text in session.ChatAsync(new ChatHistory.Message(AuthorRole.User, prompt), new InferenceParams { Temperature = 0.25f, AntiPrompts = ["DU Llama: Please enter a query:\r\n"] }))
+            {
+                Console.Write(text);
+            }
+
+            conversation += prompt;
+            prompt = "";
+        }
+    }
+
+    private string QueryDatabase(string embeddingColumnName)
+    {
+        var query = Console.ReadLine();
+        if (string.IsNullOrWhiteSpace(query) || query == "exit" || query == "quit") Environment.Exit(0);
+        Console.WriteLine("\nQuerying database and processing with LLM...\n");
+        var queryEmbeddings = embedder.GetEmbeddings(query);
+        List<Tuple<double, string>> scores = new List<Tuple<double, string>>();
+
+        foreach (DataRow row in dt.Rows)
+        {
+            var factEmbeddings = (float[])row[embeddingColumnName];
+            var score = VectorSearchUtility.CosineSimilarity(queryEmbeddings, factEmbeddings);
+            scores.Add(new Tuple<double, string>(score, (string)row["originalText"]));
+        }
+
+        var n_top_matches = 3;
+        var topMatches = scores.OrderByDescending(s => s.Item1).Take(n_top_matches).ToList();
+
+        prompt = $"Reply as a friendly but concise DU Chatbot to help users learn more about the University of Denver using some of this data: Query: {query}\n";
+        for (int i = 0; i < topMatches.Count; i++)
+        {
+            prompt += $"Fact {i + 1}: {topMatches[i].Item2}\n";
+        }
+        prompt += "Answer:";
+        return prompt;
+    }
 }
 
+// This exists so that the same codebase can be used for a C# console app or Godot app, which prints to console differently
 public class RagPipelineConsole : RagPipelineBase
 {
     public RagPipelineConsole(string directoryPath, string[] facts, uint contextSize) : base(directoryPath, facts, contextSize)
     {
-        this.OnMessage += Console.WriteLine;
+        OnMessage += Console.WriteLine;
     }
 }
 public static class VectorSearchUtility
@@ -165,4 +247,3 @@ public static class VectorSearchUtility
         return dotProduct / (Math.Sqrt(magnitude1) * Math.Sqrt(magnitude2));
     }
 }
-
