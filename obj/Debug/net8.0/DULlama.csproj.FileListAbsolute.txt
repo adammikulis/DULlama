@@ -29,3 +29,25 @@ C:\Users\adam.mikulis\OneDrive - University of Denver\AI\DULlama\DULlama\obj\Deb
 C:\Users\adam.mikulis\OneDrive - University of Denver\AI\DULlama\DULlama\obj\Debug\net8.0\DULlama.genruntimeconfig.cache
 C:\Users\adam.mikulis\OneDrive - University of Denver\AI\DULlama\DULlama\obj\Debug\net8.0\ref\DULlama.dll
 C:\Users\adam.mikulis\OneDrive - University of Denver\AI\DULlama\DULlama\obj\Debug\net8.0\DULlama.sourcelink.json
+C:\Users\adamm\Source\Repos\DULlama\bin\Debug\net8.0\DULlama.exe
+C:\Users\adamm\Source\Repos\DULlama\bin\Debug\net8.0\DULlama.deps.json
+C:\Users\adamm\Source\Repos\DULlama\bin\Debug\net8.0\DULlama.runtimeconfig.json
+C:\Users\adamm\Source\Repos\DULlama\bin\Debug\net8.0\DULlama.dll
+C:\Users\adamm\Source\Repos\DULlama\bin\Debug\net8.0\DULlama.pdb
+C:\Users\adamm\Source\Repos\DULlama\bin\Debug\net8.0\LLamaSharp.dll
+C:\Users\adamm\Source\Repos\DULlama\bin\Debug\net8.0\Microsoft.Extensions.DependencyInjection.Abstractions.dll
+C:\Users\adamm\Source\Repos\DULlama\bin\Debug\net8.0\Microsoft.Extensions.Logging.Abstractions.dll
+C:\Users\adamm\Source\Repos\DULlama\bin\Debug\net8.0\runtimes\linux-x64\native\cuda12\libllama.so
+C:\Users\adamm\Source\Repos\DULlama\bin\Debug\net8.0\runtimes\win-x64\native\cuda12\libllama.dll
+C:\Users\adamm\Source\Repos\DULlama\obj\Debug\net8.0\DULlama.csproj.AssemblyReference.cache
+C:\Users\adamm\Source\Repos\DULlama\obj\Debug\net8.0\DULlama.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\adamm\Source\Repos\DULlama\obj\Debug\net8.0\DULlama.AssemblyInfoInputs.cache
+C:\Users\adamm\Source\Repos\DULlama\obj\Debug\net8.0\DULlama.AssemblyInfo.cs
+C:\Users\adamm\Source\Repos\DULlama\obj\Debug\net8.0\DULlama.csproj.CoreCompileInputs.cache
+C:\Users\adamm\Source\Repos\DULlama\obj\Debug\net8.0\DULlama.sourcelink.json
+C:\Users\adamm\Source\Repos\DULlama\obj\Debug\net8.0\DULlama.csproj.CopyComplete
+C:\Users\adamm\Source\Repos\DULlama\obj\Debug\net8.0\DULlama.dll
+C:\Users\adamm\Source\Repos\DULlama\obj\Debug\net8.0\refint\DULlama.dll
+C:\Users\adamm\Source\Repos\DULlama\obj\Debug\net8.0\DULlama.pdb
+C:\Users\adamm\Source\Repos\DULlama\obj\Debug\net8.0\DULlama.genruntimeconfig.cache
+C:\Users\adamm\Source\Repos\DULlama\obj\Debug\net8.0\ref\DULlama.dll

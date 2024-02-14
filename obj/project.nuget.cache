@@ -1,11 +1,11 @@
 {
   "version": 2,
-  "dgSpecHash": "If0wLhwiiOMmdXHmitNXtUK4Sf/wRvnv6cn3G5g505uVlAHDdTgLkUUAEQCxbMa153WPJb87G7Un4wI4TxVnDQ==",
+  "dgSpecHash": "eRMVdpwLIdZxlNfxRYfQBJDetDjMf7Ob+QCcySUIpNA2M6c8AefhR0e5WMa8ZhX+xEd89pmeyBz0MeLcCHJ+Vg==",
   "success": true,
-  "projectFilePath": "C:\\Users\\adamm\\Documents\\GitHub\\DULlama\\DULlama.csproj",
+  "projectFilePath": "C:\\Users\\adamm\\Source\\Repos\\DULlama\\DULlama.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\adamm\\.nuget\\packages\\llamasharp\\0.9.1\\llamasharp.0.9.1.nupkg.sha512",
-    "C:\\Users\\adamm\\.nuget\\packages\\llamasharp.backend.cpu\\0.9.1\\llamasharp.backend.cpu.0.9.1.nupkg.sha512",
+    "C:\\Users\\adamm\\.nuget\\packages\\llamasharp.backend.cuda12\\0.9.1\\llamasharp.backend.cuda12.0.9.1.nupkg.sha512",
     "C:\\Users\\adamm\\.nuget\\packages\\microsoft.dotnet.ilcompiler\\8.0.1\\microsoft.dotnet.ilcompiler.8.0.1.nupkg.sha512",
     "C:\\Users\\adamm\\.nuget\\packages\\microsoft.extensions.dependencyinjection.abstractions\\8.0.0\\microsoft.extensions.dependencyinjection.abstractions.8.0.0.nupkg.sha512",
     "C:\\Users\\adamm\\.nuget\\packages\\microsoft.extensions.logging.abstractions\\8.0.0\\microsoft.extensions.logging.abstractions.8.0.0.nupkg.sha512",

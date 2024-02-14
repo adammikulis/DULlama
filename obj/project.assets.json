@@ -18,53 +18,17 @@
           }
         }
       },
-      "LLamaSharp.Backend.Cpu/0.9.1": {
+      "LLamaSharp.Backend.Cuda12/0.9.1": {
         "type": "package",
         "build": {
-          "build/netstandard2.0/LLamaSharp.Backend.Cpu.props": {}
+          "build/netstandard2.0/LLamaSharp.Backend.Cuda12.props": {}
         },
         "runtimeTargets": {
-          "runtimes/linux-x64/native/avx/libllama.so": {
+          "runtimes/linux-x64/native/cuda12/libllama.so": {
             "assetType": "native",
             "rid": "linux-x64"
           },
-          "runtimes/linux-x64/native/avx2/libllama.so": {
-            "assetType": "native",
-            "rid": "linux-x64"
-          },
-          "runtimes/linux-x64/native/avx512/libllama.so": {
-            "assetType": "native",
-            "rid": "linux-x64"
-          },
-          "runtimes/linux-x64/native/libllama.so": {
-            "assetType": "native",
-            "rid": "linux-x64"
-          },
-          "runtimes/osx-arm64/native/ggml-metal.metal": {
-            "assetType": "native",
-            "rid": "osx-arm64"
-          },
-          "runtimes/osx-arm64/native/libllama.dylib": {
-            "assetType": "native",
-            "rid": "osx-arm64"
-          },
-          "runtimes/osx-x64/native/libllama.dylib": {
-            "assetType": "native",
-            "rid": "osx-x64"
-          },
-          "runtimes/win-x64/native/avx/libllama.dll": {
-            "assetType": "native",
-            "rid": "win-x64"
-          },
-          "runtimes/win-x64/native/avx2/libllama.dll": {
-            "assetType": "native",
-            "rid": "win-x64"
-          },
-          "runtimes/win-x64/native/avx512/libllama.dll": {
-            "assetType": "native",
-            "rid": "win-x64"
-          },
-          "runtimes/win-x64/native/libllama.dll": {
+          "runtimes/win-x64/native/cuda12/libllama.dll": {
             "assetType": "native",
             "rid": "win-x64"
           }
@@ -140,28 +104,19 @@
         "llamasharp.nuspec"
       ]
     },
-    "LLamaSharp.Backend.Cpu/0.9.1": {
-      "sha512": "uClSCyyDJ8XVwXphg0uFpplEsOd8oZVfd9eBjEhwNyg6483vX8W8/KIoLF9hi7vKr7kripibnSepFsAJKvTXjw==",
+    "LLamaSharp.Backend.Cuda12/0.9.1": {
+      "sha512": "AvYJjCb0kqyWjpo5Xvv5oYEf0AfgVQEMv7DCh9czj8+iW9Ydf/GMlrC0Hti7UfWT3Nyb00x9ohuyokB/Tig0OQ==",
       "type": "package",
-      "path": "llamasharp.backend.cpu/0.9.1",
+      "path": "llamasharp.backend.cuda12/0.9.1",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
-        "build/netstandard2.0/LLamaSharp.Backend.Cpu.props",
+        "build/netstandard2.0/LLamaSharp.Backend.Cuda12.props",
         "icon512.png",
-        "llamasharp.backend.cpu.0.9.1.nupkg.sha512",
-        "llamasharp.backend.cpu.nuspec",
-        "runtimes/linux-x64/native/avx/libllama.so",
-        "runtimes/linux-x64/native/avx2/libllama.so",
-        "runtimes/linux-x64/native/avx512/libllama.so",
-        "runtimes/linux-x64/native/libllama.so",
-        "runtimes/osx-arm64/native/ggml-metal.metal",
-        "runtimes/osx-arm64/native/libllama.dylib",
-        "runtimes/osx-x64/native/libllama.dylib",
-        "runtimes/win-x64/native/avx/libllama.dll",
-        "runtimes/win-x64/native/avx2/libllama.dll",
-        "runtimes/win-x64/native/avx512/libllama.dll",
-        "runtimes/win-x64/native/libllama.dll"
+        "llamasharp.backend.cuda12.0.9.1.nupkg.sha512",
+        "llamasharp.backend.cuda12.nuspec",
+        "runtimes/linux-x64/native/cuda12/libllama.so",
+        "runtimes/win-x64/native/cuda12/libllama.dll"
       ]
     },
     "Microsoft.DotNet.ILCompiler/8.0.1": {
@@ -354,7 +309,7 @@
   "projectFileDependencyGroups": {
     "net8.0": [
       "LLamaSharp >= 0.9.1",
-      "LLamaSharp.Backend.Cpu >= 0.9.1",
+      "LLamaSharp.Backend.Cuda12 >= 0.9.1",
       "Microsoft.DotNet.ILCompiler >= 8.0.1",
       "Microsoft.NET.ILLink.Tasks >= 8.0.1"
     ]
@@ -366,11 +321,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\adamm\\Documents\\GitHub\\DULlama\\DULlama.csproj",
+      "projectUniqueName": "C:\\Users\\adamm\\Source\\Repos\\DULlama\\DULlama.csproj",
       "projectName": "DULlama",
-      "projectPath": "C:\\Users\\adamm\\Documents\\GitHub\\DULlama\\DULlama.csproj",
+      "projectPath": "C:\\Users\\adamm\\Source\\Repos\\DULlama\\DULlama.csproj",
       "packagesPath": "C:\\Users\\adamm\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\adamm\\Documents\\GitHub\\DULlama\\obj\\",
+      "outputPath": "C:\\Users\\adamm\\Source\\Repos\\DULlama\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -408,7 +363,7 @@
             "target": "Package",
             "version": "[0.9.1, )"
           },
-          "LLamaSharp.Backend.Cpu": {
+          "LLamaSharp.Backend.Cuda12": {
             "target": "Package",
             "version": "[0.9.1, )"
           },

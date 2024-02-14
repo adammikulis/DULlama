@@ -16,7 +16,7 @@
   <ImportGroup Condition=" '$(ExcludeRestorePackageImports)' != 'true' ">
     <Import Project="$(NuGetPackageRoot)microsoft.net.illink.tasks\8.0.1\build\Microsoft.NET.ILLink.Tasks.props" Condition="Exists('$(NuGetPackageRoot)microsoft.net.illink.tasks\8.0.1\build\Microsoft.NET.ILLink.Tasks.props')" />
     <Import Project="$(NuGetPackageRoot)microsoft.dotnet.ilcompiler\8.0.1\build\Microsoft.DotNet.ILCompiler.props" Condition="Exists('$(NuGetPackageRoot)microsoft.dotnet.ilcompiler\8.0.1\build\Microsoft.DotNet.ILCompiler.props')" />
-    <Import Project="$(NuGetPackageRoot)llamasharp.backend.cpu\0.9.1\build\netstandard2.0\LLamaSharp.Backend.Cpu.props" Condition="Exists('$(NuGetPackageRoot)llamasharp.backend.cpu\0.9.1\build\netstandard2.0\LLamaSharp.Backend.Cpu.props')" />
+    <Import Project="$(NuGetPackageRoot)llamasharp.backend.cuda12\0.9.1\build\netstandard2.0\LLamaSharp.Backend.Cuda12.props" Condition="Exists('$(NuGetPackageRoot)llamasharp.backend.cuda12\0.9.1\build\netstandard2.0\LLamaSharp.Backend.Cuda12.props')" />
   </ImportGroup>
   <PropertyGroup Condition=" '$(ExcludeRestorePackageImports)' != 'true' ">
     <PkgMicrosoft_NET_ILLink_Tasks Condition=" '$(PkgMicrosoft_NET_ILLink_Tasks)' == '' ">C:\Users\adamm\.nuget\packages\microsoft.net.illink.tasks\8.0.1</PkgMicrosoft_NET_ILLink_Tasks>

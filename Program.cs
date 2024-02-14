@@ -8,7 +8,9 @@
 // Download a Llama2 coding model: https://huggingface.co/TheBloke/CodeLlama-7B-Instruct-GGUF
 // Download a Llama2 general model: https://huggingface.co/TheBloke/Llama-2-7B-GGUF
 
-// This project includes LLamaSharp.Backend.CPU only, for Nvidia GPUs add either backend using Nuget Package Manager in Visual Studio or via VSCode extension:
+// This project includes the Cuda12 backend (12.1), if you want to use something else use Nuget Package Manager in Visual Studio or via VSCode extension:
+// https://developer.nvidia.com/cuda-12-1-0-download-archive
+// https://www.nuget.org/packages/LLamaSharp.Backend.Cpu
 // https://www.nuget.org/packages/LLamaSharp.Backend.Cuda11
 // https://www.nuget.org/packages/LLamaSharp.Backend.Cuda12
 
@@ -18,7 +20,7 @@ using System.Data;
 
 string directoryPath = @"C:/ai/models"; // Change to your model folder here
 
-// Create your datasource of facts for the vector db
+// Replace this with your database of facts
 string[] facts = {
     "The University of Denver is a private University that is abbreviated as 'DU'",
     "The University of Denver was founded in 1864",
@@ -92,16 +94,16 @@ while (!validInput)
 }
 
 // Create model parameters to be used for inference and embedding
-var @modelparams = new ModelParams(modelPath)
+var modelparams = new ModelParams(modelPath)
 {
     ContextSize = 4096, // This can be changed by the user according to memory usage and model capability
     EmbeddingMode = true, // This must be set to true to generate embeddings for vector search
-    // GpuLayerCount = 64 // Uncomment this line and set your number of layers to offload to the GPU here (must have nuget package LLamaSharp.Backend.Cuda11 or .Cuda12 installed)
+    GpuLayerCount = 8 // Set your number of layers to offload to the GPU here, depending on VRAM available (you can mix CPU with GPU for hybrid inference)
 };
 
 // Load the model and create the embedder
-using var model = LLamaWeights.LoadFromFile(@modelparams);
-var embedder = new LLamaEmbedder(model, @modelparams);
+using var model = LLamaWeights.LoadFromFile(modelparams);
+var embedder = new LLamaEmbedder(model, modelparams);
 Console.WriteLine($"\nModel: {fullModelName} from {modelPath} loaded\n");
 
 // Data table will include the embeddings (serves as the index) and original text for reference (atypical of vector dbs)
@@ -119,7 +121,7 @@ foreach (var fact in facts)
 Console.WriteLine("Facts embedded!\n");
 
 // Create the context and InteractiveExecutor needed for chat, utilizing existing @modelparams
-using var context = model.CreateContext(@modelparams);
+using var context = model.CreateContext(modelparams);
 var ex = new InteractiveExecutor(context);
 string prompt = "";
 string conversation = "";
