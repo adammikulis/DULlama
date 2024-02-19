@@ -23,7 +23,6 @@ General: https://huggingface.co/TheBloke/Llama-2-7B-GGUF
 
 
 Future goals:
-- Add support for Microsoft's Phi-2
 - Add processing for additional files/datatypes (sqr, sql, pdf, etc)
 - Allow the LLM to process the entire conversation while still focusing on the most recent prompt to avoid repeating answers
 - Integrate some telemetry like tok/s
