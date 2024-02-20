@@ -1,4 +1,4 @@
-﻿// This program creates a local RAG pipeline using LLamaSharp v0.9.1 utilizing Mistral or Llama2 transformer models
+﻿// This program creates a local RAG pipeline using LLamaSharp v0.10.0 utilizing Mistral, Mixtra, Llama2, or Phi transformer models
 // It has a model directoryPath set to C:\ai\models, change to where you keep your downloaded models
 
 // Download a Mistral math-enhanced model: https://huggingface.co/TheBloke/Mistral-7B-Instruct-v0.2-DARE-GGUF
